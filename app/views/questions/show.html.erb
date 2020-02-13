@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<section id="question">
+<h1>
   <%= @question.title %>
-</p>
-
+</h1>
 <p>
-  <strong>Description:</strong>
   <%= @question.description %>
 </p>
+</section>
+
+<section id="answer">
+<% @question.answers.each do |answer|%>
+  <hr/>
+  <p><%=answer.description%></p>
+<% end %>
+</section>
+
+<%= render 'answers/form', answer: @answer %>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

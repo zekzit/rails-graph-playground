@@ -28,7 +28,7 @@ class CollaboratorsController < ApplicationController
 
     respond_to do |format|
       if @collaborator.save
-        format.html { redirect_to @collaborator, notice: 'Collaborator was successfully created.' }
+        format.html { redirect_to collaborators_path, notice: 'Collaborator was successfully created.' }
         format.json { render :show, status: :created, location: @collaborator }
       else
         format.html { render :new }
@@ -62,9 +62,7 @@ class CollaboratorsController < ApplicationController
   end
 
   def set_current_user
-    puts @collaborator
-    puts '================'
-    session[:current_user] = @collaborator
+    session[:current_user] = @collaborator.id
   end
 
   private

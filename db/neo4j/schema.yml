@@ -14,11 +14,17 @@
 :constraints:
 - CONSTRAINT ON ( `neo4j::migrations::schemamigration`:`Neo4j::Migrations::SchemaMigration`
   ) ASSERT `neo4j::migrations::schemamigration`.migration_id IS UNIQUE
+- CONSTRAINT ON ( answer:Answer ) ASSERT answer.uuid IS UNIQUE
+- CONSTRAINT ON ( collaborator:Collaborator ) ASSERT collaborator.uuid IS UNIQUE
 - CONSTRAINT ON ( inventory:Inventory ) ASSERT inventory.uuid IS UNIQUE
 - CONSTRAINT ON ( inventorytype:InventoryType ) ASSERT inventorytype.uuid IS UNIQUE
 - CONSTRAINT ON ( node:Node ) ASSERT node.uuid IS UNIQUE
+- CONSTRAINT ON ( question:Question ) ASSERT question.uuid IS UNIQUE
 :indexes: []
 :versions:
 - '20200210094742'
 - '20200210102456'
 - '20200210111940'
+- '20200213024637'
+- '20200213024801'
+- '20200213024852'
