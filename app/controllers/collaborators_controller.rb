@@ -1,5 +1,5 @@
 class CollaboratorsController < ApplicationController
-  before_action :set_collaborator, only: [:show, :edit, :update, :destroy]
+  before_action :set_collaborator, only: [:show, :edit, :update, :destroy, :set_current_user]
 
   # GET /collaborators
   # GET /collaborators.json
@@ -59,6 +59,12 @@ class CollaboratorsController < ApplicationController
       format.html { redirect_to collaborators_url, notice: 'Collaborator was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def set_current_user
+    puts @collaborator
+    puts '================'
+    session[:current_user] = @collaborator
   end
 
   private

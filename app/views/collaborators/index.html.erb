@@ -19,6 +19,7 @@
         <td><%= link_to 'Show', collaborator %></td>
         <td><%= link_to 'Edit', edit_collaborator_path(collaborator) %></td>
         <td><%= link_to 'Destroy', collaborator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Set as current user', set_current_user_path(collaborator), method: :post, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

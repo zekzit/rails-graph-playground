@@ -3,6 +3,8 @@ class Collaborator
   property :name, type: String
   property :title, type: String
 
-
+  def to_s
+    "#{self.name} / #{self.title}"
+  end
 
 end
