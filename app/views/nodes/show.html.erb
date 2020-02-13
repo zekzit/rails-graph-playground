@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<% if @node.parent.present? %>
+<p>
+  <strong>Parent:</strong>
+  <%= link_to @node.parent.name, node_path(@node.parent) %>
+</p>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @node.name %>
+</p>
+
+<p>
+  <strong>Choices:</strong>
+  <% @node.children.each do |subnode| %>
+    <%= link_to subnode.name.present? ? subnode.name : subnode.uuid, node_path(subnode) %>
+  <% end %>
+</p>
+
+<%= render 'form', node: @new_node, parent: @node %>
+
+<%= link_to 'Edit', edit_node_path(@node) %> |
+<%= link_to 'Back', nodes_path %>
