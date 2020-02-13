@@ -48,9 +48,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-<<<<<<< HEAD
-gem 'neo4j', '~> 9.6.0'
-=======
 gem 'neo4j', '~> 9.6.0'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
->>>>>>> 774d8e0b02174d8cfb79d1f6a61269d9891d7b07
