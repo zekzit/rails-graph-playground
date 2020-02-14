@@ -20,6 +20,10 @@
 - CONSTRAINT ON ( inventorytype:InventoryType ) ASSERT inventorytype.uuid IS UNIQUE
 - CONSTRAINT ON ( node:Node ) ASSERT node.uuid IS UNIQUE
 - CONSTRAINT ON ( question:Question ) ASSERT question.uuid IS UNIQUE
+- CONSTRAINT ON ( vehicle:Vehicle ) ASSERT vehicle.uuid IS UNIQUE
+- CONSTRAINT ON ( vehiclecomment:VehicleComment ) ASSERT vehiclecomment.uuid IS UNIQUE
+- CONSTRAINT ON ( vehiclecommenttemplate:VehicleCommentTemplate ) ASSERT vehiclecommenttemplate.uuid
+  IS UNIQUE
 :indexes: []
 :versions:
 - '20200210094742'
@@ -28,3 +32,6 @@
 - '20200213024637'
 - '20200213024801'
 - '20200213024852'
+- '20200214062852'
+- '20200214063015'
+- '20200214063048'

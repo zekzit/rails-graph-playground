@@ -13,8 +13,10 @@
 <% @question.answers.each do |answer|%>
   <hr/>
   <p><%=answer.description%></p>
+  <em>by: <%=answer.owner.name%></em>
 <% end %>
 </section>
+<hr/>
 
 <%= render 'answers/form', answer: @answer %>
 

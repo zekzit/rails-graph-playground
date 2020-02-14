@@ -11,6 +11,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @answer = Answer.new
+    @answer.question = @question
+    @answer.owner = session[:current_user].present? ? Collaborator.find(session[:current_user]) : nil
   end
 
   # GET /questions/new

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicle Comment Templates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_comment_templates.each do |vehicle_comment_template| %>
+      <tr>
+        <td><%= vehicle_comment_template.score %></td>
+        <td><%= vehicle_comment_template.comment %></td>
+        <td><%= link_to 'Show', vehicle_comment_template %></td>
+        <td><%= link_to 'Edit', edit_vehicle_comment_template_path(vehicle_comment_template) %></td>
+        <td><%= link_to 'Destroy', vehicle_comment_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle Comment Template', new_vehicle_comment_template_path %>

@@ -63,6 +63,7 @@ class CollaboratorsController < ApplicationController
 
   def set_current_user
     session[:current_user] = @collaborator.id
+    redirect_to '/'
   end
 
   private

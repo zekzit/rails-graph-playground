@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @vehicle_comment_template.score %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @vehicle_comment_template.comment %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_comment_template_path(@vehicle_comment_template) %> |
+<%= link_to 'Back', vehicle_comment_templates_path %>

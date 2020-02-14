@@ -1,0 +1,1 @@
+json.partial! "vehicle_comment_templates/vehicle_comment_template", vehicle_comment_template: @vehicle_comment_template

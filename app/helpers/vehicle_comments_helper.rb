@@ -1,0 +1,2 @@
+module VehicleCommentsHelper
+end

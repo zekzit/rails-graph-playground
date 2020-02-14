@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  license_number: MyString
+  province: MyString
+  brand: MyString
+  model: MyString
+  year: MyString
+  vehicle_type: MyString
+
+two:
+  license_number: MyString
+  province: MyString
+  brand: MyString
+  model: MyString
+  year: MyString
+  vehicle_type: MyString
