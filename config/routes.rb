@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :vehicle_comment_templates
-  resources :vehicle_comments
-  resources :vehicles
   get '/', to: 'home#index'
   resources :nodes
   resources :inventory_types
@@ -12,4 +9,9 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers
   
+  resources :vehicles do
+    post '/comment', to: 'vehicles#new_comment', as: 'new_comment'
+  end
+  resources :vehicle_comments
+  resources :vehicle_comment_templates
 end

@@ -13,35 +13,46 @@
   </p>
   <p style="margin-top:1em; width:100%;">
     <p>My Rating</p>
-    <input style="width:50%" type="range" min="-100" max="100" value="0" class="slider" id="myRange">
+    <input style="width:50%" type="range" min="-5" max="5" value="<%=@vehicle.average_score%>" class="slider" id="myRange">
+    <%=@vehicle.average_score%>
   </p>
 </div>
 
 <div style="display:flex; margin:2em 0;column-gap: 1rem; row-gap: 1rem;">
-  <div style="flex:1;text-align:center; background-color: #f6f6f6; margin: 1em;">
+  <div style="flex:1;text-align:center; background-color: #f6f6f6; margin: 1em; padding-bottom: 1em;">
     <h3 style="color:navy">+ Positive</h3>
     <% @templates.each do |template| %>
       <% if template.score > 0 %>
-        <button style="padding:0.5em; margin:0.5em 0; width: 20vw;"><%= template.comment %> <%= template.score %></button>
+        <%=button_to "#{template.comment} #{template.score}", vehicle_new_comment_path(@vehicle, ref: template), { style: "padding:0.5em; margin:0.5em 0; width: 20vw;" } %>
       <% end %>
     <% end %>
   </div>
-  <div style="flex:1;text-align:center; background-color: #f6f6f6; margin: 1em;">
+  <div style="flex:1;text-align:center; background-color: #f6f6f6; margin: 1em; padding-bottom: 1em;">
     <h3 style="color:green">Neutral</h3>
     <% @templates.each do |template| %>
       <% if template.score == 0 %>
-        <button style="padding:0.5em; margin:0.5em 0; width: 20vw;"><%= template.comment %></button>
+        <%=button_to "#{template.comment}", vehicle_new_comment_path(@vehicle, ref: template), { style: "padding:0.5em; margin:0.5em 0; width: 20vw;" } %>
       <% end %>
     <% end %>
   </div>
-  <div style="flex:1;text-align:center; background-color: #f6f6f6; margin: 1em;">
+  <div style="flex:1;text-align:center; background-color: #f6f6f6; margin: 1em; padding-bottom: 1em;">
     <h3 style="color:red">- Negative</h3>
     <% @templates.each do |template| %>
       <% if template.score < 0 %>
-        <button style="padding:0.5em; margin:0.5em 0; width: 20vw;"><%= template.comment %> <%= template.score %></button>
+        <%=button_to "#{template.comment} #{template.score}", vehicle_new_comment_path(@vehicle, ref: template), { style: "padding:0.5em; margin:0.5em 0; width: 20vw;" } %>
       <% end %>
     <% end %>
   </div>
+</div>
+
+<div>
+  <% @vehicle.comments.each do |comment| %>
+    <p>
+      <%= comment.template.comment %>
+      <%= comment.template.score %> 
+      - <em><%= comment.owner.name %></em>
+    </p>
+  <% end %>
 </div>
 
 <hr style="margin-top:1em"/>

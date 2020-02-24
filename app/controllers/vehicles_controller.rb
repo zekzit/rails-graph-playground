@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy, :new_comment]
+  before_action :set_vehicle_comment_template, only: [:new_comment]
 
   # GET /vehicles
   # GET /vehicles.json
@@ -16,6 +17,18 @@ class VehiclesController < ApplicationController
   # GET /vehicles/new
   def new
     @vehicle = Vehicle.new
+  end
+
+  def new_comment
+    vehicle_comment = VehicleComment.new
+    vehicle_comment.vehicle = @vehicle
+    vehicle_comment.template = @vehicle_comment_template
+    vehicle_comment.owner = current_user
+    respond_to do |format|
+      if vehicle_comment.save
+        format.html { redirect_to @vehicle, notice: 'Comment added.' }
+      end
+    end
   end
 
   # GET /vehicles/1/edit
@@ -65,7 +78,12 @@ class VehiclesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
+      id = params[:id].present? ? params[:id] : params[:vehicle_id]
+      @vehicle = Vehicle.find(id)
+    end
+
+    def set_vehicle_comment_template
+      @vehicle_comment_template = VehicleCommentTemplate.find(params[:ref])
     end
 
     # Only allow a list of trusted parameters through.
